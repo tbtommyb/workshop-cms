@@ -1,0 +1,19 @@
+{
+  "name": "workshop-cms",
+  "version": "1.0.0",
+  "description": "step 1 workshop",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RhodesPeter/workshop-cms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RhodesPeter/workshop-cms/issues"
+  },
+  "homepage": "https://github.com/RhodesPeter/workshop-cms#readme"
+}
