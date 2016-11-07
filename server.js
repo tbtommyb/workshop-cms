@@ -1,22 +1,34 @@
 var http = require('http');
 var fs = require('fs');
 
-var message = 'Node workshop!'
 
-function handler(request, response){
-  var method = request.method;
-  console.log(method);
+function handler(request, response) {
   var endpoint = request.url;
   console.log(endpoint);
+
   if (endpoint === '/'){
     response.writeHead(200, {"Content-Type": "text/html"});
-
-    fs.readFile(__dirname + '/public/index.html', function(error, file){
+    fs.readFile(__dirname + '/public/index.html', function(error, file) {
       if (error){
-        console.log(error)
+        console.log(error);
         return;
       }
-
+      response.end(file);
+    });
+  } else {
+    var extension = endpoint.split('.')[1];
+    var contentType;
+    if(extension === 'css') {
+      contentType = 'text/css';
+    } else if(extension === 'ico') {
+      contentType = 'image/ico';
+    }
+    response.writeHead(200, {'Content-Type': contentType});
+    fs.readFile(__dirname + '/public' + endpoint, function(error, file) {
+      if(error) {
+        console.log(error);
+        return;
+      }
       response.end(file);
     });
   }
